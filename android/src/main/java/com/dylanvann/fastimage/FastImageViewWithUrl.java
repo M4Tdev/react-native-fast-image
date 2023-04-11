@@ -18,6 +18,7 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableNativeMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
+import com.bumptech.glide.load.resource.bitmap.DownsampleStrategy;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -151,7 +152,9 @@ class FastImageViewWithUrl extends AppCompatImageView {
                                     .fallback(mDefaultSource)); // null will not be treated as error
 
             if (mDisableTransformation) {
-                builder = builder.dontTransform();
+                builder = builder
+                    .downsample(DownsampleStrategy.NONE)
+                    .dontTransform();
             }
 
             if (key != null)
