@@ -19,7 +19,8 @@
     },
     "license": "(MIT AND Apache-2.0)",
     "author": "Dylan Vann <dylan@dylanvann.com> (https://dylanvann.com)",
-    "main": "src/index.tsx",
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.js",
     "typings": "dist/index.d.ts",
     "files": [
         "android",
@@ -27,15 +28,13 @@
         "ios",
         "!ios/build",
         "dist",
-        "src/index.tsx",
         "RNFastImage.podspec"
     ],
     "scripts": {
         "build": "dv-scripts build && cp src/index.js.flow dist/index.js.flow && cp src/index.js.flow dist/index.cjs.js.flow",
         "lint": "dv-scripts lint",
         "release": "dv-scripts release",
-        "test": "dv-scripts test",
-        "postinstall": "yarn build"
+        "test": "dv-scripts test"
     },
     "prettier": {
         "semi": false,
